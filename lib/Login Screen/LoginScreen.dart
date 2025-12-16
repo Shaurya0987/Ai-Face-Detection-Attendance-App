@@ -1,6 +1,8 @@
 import 'package:facedetectionapp/Login%20Screen/Components/LogoWidget.dart';
 import 'package:facedetectionapp/Login%20Screen/Components/PositionedWidget.dart';
 import 'package:facedetectionapp/Login%20Screen/Components/TextWidget.dart';
+import 'package:facedetectionapp/Student%20Sign%20In%20Page/StudentSignIn.dart';
+import 'package:facedetectionapp/Teacher%20Sign%20In%20Page/teacherSignIn.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -43,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Placeholder(),
+                          builder: (context) => TeacherSignIn(),
                         ),
                       );
                     },
@@ -60,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Placeholder(),
+                          builder: (context) => StudentSignIn(),
                         ),
                       );
                     },

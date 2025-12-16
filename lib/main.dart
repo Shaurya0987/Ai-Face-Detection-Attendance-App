@@ -1,4 +1,5 @@
 
+import 'package:facedetectionapp/Student%20Sign%20In%20Page/StudentSignIn.dart';
 import 'package:facedetectionapp/Teacher%20Sign%20In%20Page/teacherSignIn.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: TeacherSignIn(),
+      home: StudentSignIn(),
     );
   }
 }
