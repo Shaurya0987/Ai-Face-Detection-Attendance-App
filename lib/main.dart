@@ -1,6 +1,5 @@
 
-import 'package:facedetectionapp/Login%20Screen/LoginScreen.dart';
-import 'package:facedetectionapp/Splash%20Screen/SplashScreen.dart';
+import 'package:facedetectionapp/Teacher%20Sign%20In%20Page/teacherSignIn.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: SplashScreen(),
+      home: TeacherSignIn(),
     );
   }
 }

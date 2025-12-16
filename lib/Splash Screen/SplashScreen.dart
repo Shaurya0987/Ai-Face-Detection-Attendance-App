@@ -68,7 +68,6 @@ class _SplashScreenState extends State<SplashScreen>
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // 🔹 Center animated content
           Center(
             child: FadeTransition(
               opacity: _fadeAnimation,
@@ -101,7 +100,6 @@ class _SplashScreenState extends State<SplashScreen>
             ),
           ),
 
-          // 🔹 Bottom text (static)
           Positioned(
             bottom: 20,
             left: 0,

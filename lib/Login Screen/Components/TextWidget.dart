@@ -26,20 +26,20 @@ class TextWidget extends StatelessWidget {
     const SizedBox(height: 5),
     
     Text(
-      "Streamline your campus life. Select",
+      "Streamline your campus life. ",
       style: TextStyle(
         color: Colors.grey.shade600,
-        fontSize: 16,
+        fontSize: 17,
       ),
     ),
     
     const SizedBox(height: 5),
     
     Text(
-      "your role to get started",
+      "Enter your details to get started",
       style: TextStyle(
         color: Colors.grey.shade600,
-        fontSize: 16,
+        fontSize: 17,
       ),
     ),
       ],
