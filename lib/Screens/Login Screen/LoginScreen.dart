@@ -1,11 +1,10 @@
-import 'package:facedetectionapp/Provider/ThemeProvider.dart';
+
 import 'package:facedetectionapp/Screens/Login%20Screen/Components/LogoWidget.dart';
 import 'package:facedetectionapp/Screens/Login%20Screen/Components/PositionedWidget.dart';
 import 'package:facedetectionapp/Screens/Login%20Screen/Components/TextWidget.dart';
-import 'package:facedetectionapp/Screens/Student%20Sign%20In%20Page/StudentSignIn.dart' hide TextWidget;
+import 'package:facedetectionapp/Screens/Student%20Sign%20In%20Page/StudentSignIn.dart' ;
 import 'package:facedetectionapp/Screens/Teacher%20Sign%20In%20Page/teacherSignIn.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
