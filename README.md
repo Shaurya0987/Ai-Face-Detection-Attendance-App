@@ -67,7 +67,25 @@ With Attendex, attendance is marked simply by showing your face to the camera.
     - Everyone is happy (especially the teacher)
 
 No faces were harmed during attendance.
+
 ## Screenshots
+
+### 🚀 Splash Screen
+![Splash Screen](profile.avif)
+
+### 🧑‍🎓 Student Login
+![Student Login](screenshots/student_login.png)
+
+### 👨‍🏫 Teacher Login
+![Teacher Login](screenshots/teacher_login.png)
+
+### 📊 Teacher Dashboard
+![Teacher Dashboard](screenshots/teacher_dashboard.png)
+
+### 📸 Face Detection
+![Face Detection](screenshots/face_scan.png)
+
+
 
 ChatGPT Image Dec 14, 2025, 10_30_28 PM.png
 
