@@ -1,9 +1,11 @@
-import 'package:facedetectionapp/Login%20Screen/Components/LogoWidget.dart';
-import 'package:facedetectionapp/Login%20Screen/Components/PositionedWidget.dart';
-import 'package:facedetectionapp/Login%20Screen/Components/TextWidget.dart';
-import 'package:facedetectionapp/Student%20Sign%20In%20Page/StudentSignIn.dart';
-import 'package:facedetectionapp/Teacher%20Sign%20In%20Page/teacherSignIn.dart';
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
+import 'package:facedetectionapp/Screens/Login%20Screen/Components/LogoWidget.dart';
+import 'package:facedetectionapp/Screens/Login%20Screen/Components/PositionedWidget.dart';
+import 'package:facedetectionapp/Screens/Login%20Screen/Components/TextWidget.dart';
+import 'package:facedetectionapp/Screens/Student%20Sign%20In%20Page/StudentSignIn.dart' hide TextWidget;
+import 'package:facedetectionapp/Screens/Teacher%20Sign%20In%20Page/teacherSignIn.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,10 +18,11 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Stack(
-          fit: StackFit.expand, // 🔥 IMPORTANT
+          fit: StackFit.expand,
           children: [
             Center(
               child: Column(

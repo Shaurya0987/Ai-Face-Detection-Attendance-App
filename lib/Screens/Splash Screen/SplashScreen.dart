@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:facedetectionapp/Login%20Screen/LoginScreen.dart';
+import 'package:facedetectionapp/Screens/Login%20Screen/LoginScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:facedetectionapp/Login Screen/Components/LogoWidget.dart';
+import 'package:facedetectionapp/Screens/Login%20Screen/Components/LogoWidget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

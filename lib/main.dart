@@ -1,10 +1,15 @@
 
-import 'package:facedetectionapp/Student%20Sign%20In%20Page/StudentSignIn.dart';
-import 'package:facedetectionapp/Teacher%20Sign%20In%20Page/teacherSignIn.dart';
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
+import 'package:facedetectionapp/Provider/UserProvider.dart';
+import 'package:facedetectionapp/Screens/Splash%20Screen/SplashScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_)=>ThemeProvider()),
+    ChangeNotifierProvider(create: (_)=>UserSession()),
+  ],child: const MyApp(),));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: StudentSignIn(),
+      home: SplashScreen(),
     );
   }
 }
