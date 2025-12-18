@@ -1,9 +1,8 @@
 
 import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:facedetectionapp/Provider/UserProvider.dart';
-import 'package:facedetectionapp/Screens/Scan%20Screen/CameraPage.dart';
-import 'package:facedetectionapp/Screens/Scan%20Screen/ScanScreen.dart';
 import 'package:facedetectionapp/Screens/Splash%20Screen/SplashScreen.dart';
+import 'package:facedetectionapp/Screens/TeacherDashBoard/TeacherDashBoard.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ScanScreen(),
+      home: TeacherDashboard(),
     );
   }
 }

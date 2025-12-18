@@ -10,7 +10,7 @@ class TextsWidget extends StatelessWidget {
     return Column(
       children: [
         Text("Position your face",style: TextStyle(
-      fontSize: 26,
+      fontSize: 29,
       fontWeight: FontWeight.bold
     ),),
     SizedBox(height: 10,),

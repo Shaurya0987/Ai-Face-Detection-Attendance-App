@@ -1,6 +1,7 @@
 import 'package:action_slider/action_slider.dart';
 import 'package:facedetectionapp/Provider/UserProvider.dart';
 import 'package:facedetectionapp/Screens/Login Screen/Components/TextWidget.dart';
+import 'package:facedetectionapp/Screens/Scan%20Screen/ScanScreen.dart';
 import 'package:facedetectionapp/Screens/Teacher Sign In Page/Components/AlreadyLogged.dart';
 import 'package:facedetectionapp/Screens/Teacher Sign In Page/Components/TextFeildContainers.dart';
 import 'package:flutter/material.dart';
@@ -159,7 +160,7 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (_) =>
-                                        const Placeholder(),
+                                        ScanScreen(),
                                   ),
                                 );
                               });
