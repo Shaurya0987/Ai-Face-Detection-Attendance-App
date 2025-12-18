@@ -64,7 +64,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                   Expanded(
                     child: ContainerWithoutValue(
                       title: "ABSENTEES",
-                      Percentage: "43",
+                      Percentage: "48",
                       icon: Icons.people,
                       color: Colors.redAccent,
                     ),
