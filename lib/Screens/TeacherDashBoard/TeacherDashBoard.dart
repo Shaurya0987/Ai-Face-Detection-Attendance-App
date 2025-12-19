@@ -1,12 +1,12 @@
-import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/ActivityContainer.dart';
+
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/AppBar.dart';
-import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/AttendanceLineChart.dart';
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/AttendanceTrends.dart';
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/CardWIthChangeValue.dart';
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/CardWithoutChangeValue.dart';
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/Header.dart';
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/QuickActionContainer.dart';
-import 'package:fl_chart/fl_chart.dart';
+import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/RecentActivityContainer.dart';
+
 import 'package:flutter/material.dart';
 
 class TeacherDashboard extends StatefulWidget {
@@ -138,37 +138,9 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                   ),
                 ],
               ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Recent Activity",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          "See All",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.blueAccent,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ActivityContainer(title: 'CS-101:Attendance Marked', subtitle: '45/50 students present', icon: Icons.check_circle, time: '10m ago', IconColor: Colors.green, iconShade: Colors.green.shade100,),
-                  ActivityContainer(title: 'CS-101:Attendance Marked', subtitle: '45/50 students present', icon: Icons.check_circle, time: '10m ago', IconColor: Colors.green, iconShade: Colors.green.shade100,)
-                ],
-              ),
+              RecentActivityContainer(),
 
-              SizedBox(height: 700),
+              SizedBox(height: 50),
             ],
           ),
         ),
@@ -176,3 +148,4 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
     );
   }
 }
+
