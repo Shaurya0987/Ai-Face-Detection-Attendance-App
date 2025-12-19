@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ActivityContainer extends StatelessWidget {
   final String title;
@@ -13,13 +15,14 @@ class ActivityContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Container(
         height: 70,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
           borderRadius: BorderRadius.circular(12)
         ),
         child: Padding(
@@ -37,13 +40,14 @@ class ActivityContainer extends StatelessWidget {
                 children: [
                   Text(title,style: TextStyle(
                     fontWeight: FontWeight.w900,
-                    fontSize: 16
+                    fontSize: 16,
+                    color: themeProvider.isDark?Colors.white:Colors.black
                   ),),
                   SizedBox(height: 1,),
                   Text(subtitle,style: TextStyle(
                     fontWeight: FontWeight.w900,
                     fontSize: 14,
-                    color: Colors.grey.shade600
+                    color: themeProvider.isDark?Colors.grey.shade200:Colors.grey.shade600,
                   ),)
                 ],
               ),

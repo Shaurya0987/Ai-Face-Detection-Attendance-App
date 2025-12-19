@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -7,6 +9,7 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider=context.watch<ThemeProvider>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -21,7 +24,7 @@ class Header extends StatelessWidget {
           padding:
               const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           decoration: BoxDecoration(
-            color: Colors.blue.shade50,
+            color: themeProvider.isDark?Colors.blue.shade100:Colors.blue.shade50,
             borderRadius: BorderRadius.circular(20),
           ),
           child: const Text(

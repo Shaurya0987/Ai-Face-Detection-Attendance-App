@@ -1,16 +1,19 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AttendanceLineChart extends StatelessWidget {
   const AttendanceLineChart({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider=context.watch<ThemeProvider>();
     return Container(
       height: 220,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: LineChart(
@@ -38,6 +41,8 @@ class AttendanceLineChart extends StatelessWidget {
                       return const Text("THU");
                     case 4:
                       return const Text("FRI");
+                    case 5: 
+                      return const Text("Sat");
                   }
                   return const Text("");
                 },
@@ -85,6 +90,7 @@ class AttendanceLineChart extends StatelessWidget {
                 FlSpot(1, 4),
                 FlSpot(2, 6),
                 FlSpot(3, 5),
+                FlSpot(4, 8),
                 FlSpot(4, 8),
               ],
             ),

@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 /// ---------------- CARD WITH CHANGE VALUE ----------------
 class ContainerWithValue extends StatelessWidget {
@@ -19,10 +21,11 @@ class ContainerWithValue extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider=context.watch<ThemeProvider>();
     return Container(
       height: 150,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
         borderRadius: BorderRadius.circular(14),
       ),
       padding: const EdgeInsets.all(16),
@@ -34,7 +37,7 @@ class ContainerWithValue extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CircleAvatar(
-                backgroundColor: color.withOpacity(0.1),
+                backgroundColor: themeProvider.isDark?Colors.grey.shade300:color.withOpacity(0.1),
                 radius: 20,
                 child: Icon(icon, size: 27, color: color),
               ),
@@ -42,12 +45,12 @@ class ContainerWithValue extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                 decoration: BoxDecoration(
-                  color: Colors.green.shade50,
+                  color: themeProvider.isDark?Colors.green.shade100:Colors.green.shade50,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
                   value,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.green,
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
@@ -63,8 +66,8 @@ class ContainerWithValue extends StatelessWidget {
             title,
             style: TextStyle(
               fontSize: 14,
-              color: Colors.grey.shade600,
-              fontWeight: FontWeight.w500,
+              color: themeProvider.isDark?Colors.white:Colors.grey.shade700,
+              fontWeight: FontWeight.w900,
             ),
           ),
 
@@ -72,9 +75,10 @@ class ContainerWithValue extends StatelessWidget {
 
           Text(
             Percentage,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.w800,
+              color: themeProvider.isDark?Colors.white:Colors.black,
             ),
           ),
         ],

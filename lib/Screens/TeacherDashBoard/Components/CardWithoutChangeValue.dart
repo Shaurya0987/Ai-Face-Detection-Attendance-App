@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 /// ---------------- CARD WITHOUT CHANGE VALUE ----------------
 class ContainerWithoutValue extends StatelessWidget {
@@ -17,10 +19,11 @@ class ContainerWithoutValue extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider=context.watch<ThemeProvider>();
     return Container(
       height: 150,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
         borderRadius: BorderRadius.circular(14),
       ),
       padding: const EdgeInsets.all(16),
@@ -28,7 +31,7 @@ class ContainerWithoutValue extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CircleAvatar(
-            backgroundColor: color.withOpacity(0.1),
+            backgroundColor: themeProvider.isDark?Colors.grey.shade300:color.withOpacity(0.1),
             radius: 20,
             child: Icon(icon, size: 27, color: color),
           ),
@@ -39,7 +42,7 @@ class ContainerWithoutValue extends StatelessWidget {
             title,
             style: TextStyle(
               fontSize: 14,
-              color: Colors.grey.shade600,
+              color: themeProvider.isDark?Colors.white:Colors.grey.shade700,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -48,9 +51,10 @@ class ContainerWithoutValue extends StatelessWidget {
 
           Text(
             Percentage,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.w800,
+              color: themeProvider.isDark?Colors.white:Colors.black,
             ),
           ),
         ],

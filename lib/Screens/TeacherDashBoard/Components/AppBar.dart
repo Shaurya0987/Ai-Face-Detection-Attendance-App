@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TeacherAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -6,8 +8,9 @@ class TeacherAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider=context.watch<ThemeProvider>();
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: themeProvider.isDark?Colors.grey.shade800:Colors.white,
       elevation: 9,
 
       /// 👤 AVATAR
@@ -33,15 +36,15 @@ class TeacherAppBar extends StatelessWidget
             "Welcome back,",
             style: TextStyle(
               fontSize: 13,
-              color: Colors.grey.shade600,
+              color: themeProvider.isDark?Colors.grey.shade300:Colors.grey.shade600,
             ),
           ),
-          const Text(
+          Text(
             "Dr. Smith",
             style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w600,
-              color: Colors.black,
+              color: themeProvider.isDark?Colors.white:Colors.black,
             ),
           ),
         ],
@@ -50,14 +53,16 @@ class TeacherAppBar extends StatelessWidget
       /// 🔔 ACTIONS
       actions: [
         IconButton(
-          icon: const Icon(Icons.dark_mode, size: 26, color: Colors.black),
-          onPressed: () {},
+          icon: themeProvider.isDark?Icon(Icons.light_mode, size: 26, color: Colors.white):Icon(Icons.dark_mode, size: 26, color: Colors.black),
+          onPressed: () {
+            themeProvider.toggleTheme();
+          },
         ),
         Padding(
           padding: const EdgeInsets.only(right: 12),
           child: CircleAvatar(
             radius: 18,
-            backgroundColor: Colors.grey.shade200,
+            backgroundColor: themeProvider.isDark?Colors.white:Colors.grey.shade200,
             child: const Icon(
               Icons.notifications,
               color: Colors.black,

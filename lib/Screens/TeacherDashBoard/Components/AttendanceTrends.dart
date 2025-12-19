@@ -1,5 +1,7 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/AttendanceLineChart.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AttendanceTrendsContainer extends StatelessWidget {
   const AttendanceTrendsContainer({
@@ -8,13 +10,14 @@ class AttendanceTrendsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider=context.watch<ThemeProvider>();
     return Padding(
       padding: const EdgeInsets.only(top: 30.0),
       child: Container(
         height: 335,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Padding(
@@ -25,7 +28,7 @@ class AttendanceTrendsContainer extends StatelessWidget {
               Text(
                 "Attendance Trends",
                 style: TextStyle(
-                  color: Colors.grey.shade700,
+                  color: themeProvider.isDark?Colors.white:Colors.grey.shade700,
                   fontSize: 17,
                   fontWeight: FontWeight.w100,
                 ),
@@ -41,6 +44,7 @@ class AttendanceTrendsContainer extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 31,
                           fontWeight: FontWeight.w900,
+                          color: themeProvider.isDark?Colors.white:Colors.black,
                         ),
                       ),
                       SizedBox(width: 10),
@@ -49,7 +53,7 @@ class AttendanceTrendsContainer extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
-                          color: Colors.grey.shade600,
+                          color: themeProvider.isDark?Colors.white:Colors.grey.shade600,
                         ),
                       ),
                     ],
@@ -60,7 +64,7 @@ class AttendanceTrendsContainer extends StatelessWidget {
                       vertical: 6,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.green.shade50,
+                      color: themeProvider.isDark?Colors.green.shade100:Colors.green.shade50,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(

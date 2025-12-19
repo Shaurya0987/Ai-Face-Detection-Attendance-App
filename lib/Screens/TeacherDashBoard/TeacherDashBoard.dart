@@ -1,4 +1,5 @@
 
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/AppBar.dart';
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/AttendanceTrends.dart';
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/CardWIthChangeValue.dart';
@@ -8,6 +9,7 @@ import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/QuickAction
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/RecentActivityContainer.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TeacherDashboard extends StatefulWidget {
   const TeacherDashboard({super.key});
@@ -19,8 +21,9 @@ class TeacherDashboard extends StatefulWidget {
 class _TeacherDashboardState extends State<TeacherDashboard> {
   @override
   Widget build(BuildContext context) {
+    final themeProvider=context.watch<ThemeProvider>();
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+      backgroundColor: themeProvider.isDark?Colors.grey.shade900:Colors.grey.shade100,
       appBar: const TeacherAppBar(),
       body: SingleChildScrollView(
         child: Padding(
@@ -87,7 +90,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Text(
                   "Quick Actions",
-                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold,color: themeProvider.isDark?Colors.white:Colors.black),
                 ),
               ),
 
