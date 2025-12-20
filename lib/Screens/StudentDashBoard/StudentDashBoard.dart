@@ -76,7 +76,7 @@ class StudentDashboard extends StatelessWidget {
           const SizedBox(height: 12),
 
           RecentActivityContainer(title: "Intro to DSA", subtitle: "Marked Absent", time: "9:00 AM", day: "TODAY", icon: Icons.cancel, iconColor: Colors.red, colorShade: Colors.red.shade100),
-          RecentActivityContainer(title: "Physics Lab", subtitle: "Marked Present Face Scan", time: "2:00 PM", day: "YESTERDAY", icon: Icons.check_circle, iconColor: Colors.green.shade300, colorShade: Colors.green.shade100),
+          RecentActivityContainer(title: "Physics Lab", subtitle: "Marked Present Face Scan", time: "2:00 PM", day: "YESTERDAY", icon: Icons.check_circle, iconColor: Colors.green, colorShade: Colors.green.shade100),
           RecentActivityContainer(title: "English Lit", subtitle: "Marked Late(15 mins)", time: "11:15 AM", day: "YESTERDAY", icon: Icons.access_time_filled, iconColor: Colors.deepOrange, colorShade: Colors.deepOrange.shade100),
         ],
       ),
