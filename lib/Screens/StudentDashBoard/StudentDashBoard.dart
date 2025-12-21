@@ -6,8 +6,8 @@ import 'package:facedetectionapp/Screens/StudentDashBoard/Components/RecentActiv
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class StudentDashboard extends StatelessWidget {
-  const StudentDashboard({super.key});
+class StudentDashBoard extends StatelessWidget {
+  const StudentDashBoard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class StudentDashboard extends StatelessWidget {
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: themeProvider.isDark?Colors.white:Colors.black),
               ),
               Text(
-                "See al",
+                "See all",
                 style: TextStyle(
                   color: Colors.blue,
                   fontSize: 16,
