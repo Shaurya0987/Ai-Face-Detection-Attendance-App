@@ -29,7 +29,7 @@ class StudentDashboard extends StatelessWidget {
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: themeProvider.isDark?Colors.white:Colors.black),
               ),
               Text(
-                "See all",
+                "See al",
                 style: TextStyle(
                   color: Colors.blue,
                   fontSize: 16,
