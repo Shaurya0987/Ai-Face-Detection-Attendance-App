@@ -1,16 +1,19 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AttendanceCard extends StatelessWidget {
   const AttendanceCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.all(25),
+        padding:  EdgeInsets.all(25),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: Colors.blue.shade500
+          color: themeProvider.isDark?Colors.blue.shade600:Colors.blue.shade500
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

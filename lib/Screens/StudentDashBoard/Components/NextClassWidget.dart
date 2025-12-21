@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class NextClassWidget extends StatelessWidget {
   final String title;
@@ -16,13 +18,14 @@ class NextClassWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Padding(
       padding: const EdgeInsets.only(right: 14),
       child: Container(
-        height: 252, // ✅ Bigger card height
+        height: 252,
         width: 250,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -35,7 +38,7 @@ class NextClassWidget extends StatelessWidget {
               ),
               child: Image.asset(
                 image,
-                height: 120, // 🔼 increased for balance
+                height: 120, 
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
@@ -54,7 +57,8 @@ class NextClassWidget extends StatelessWidget {
                     title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
+                    style: TextStyle(
+                      color: themeProvider.isDark?Colors.white:Colors.black,
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
                     ),
@@ -62,16 +66,16 @@ class NextClassWidget extends StatelessWidget {
                   const SizedBox(height: 10),
                   Row(
                     children: [
-                      const Icon(
+                       Icon(
                         Icons.watch_later_sharp,
                         size: 16,
-                        color: Colors.grey,
+                        color: themeProvider.isDark?Colors.white:Colors.grey,
                       ),
                       const SizedBox(width: 6),
                       Text(
                         time,
                         style: TextStyle(
-                          color: Colors.grey.shade700,
+                          color: themeProvider.isDark?Colors.white:Colors.grey.shade700,
                           fontSize: 15,
                         ),
                       ),
@@ -80,16 +84,16 @@ class NextClassWidget extends StatelessWidget {
                   const SizedBox(height: 6),
                   Row(
                     children: [
-                      const Icon(
+                       Icon(
                         Icons.location_on,
                         size: 16,
-                        color: Colors.grey,
+                        color: themeProvider.isDark?Colors.white:Colors.grey,
                       ),
                       const SizedBox(width: 6),
                       Text(
                         venue,
                         style: TextStyle(
-                          color: Colors.grey.shade700,
+                          color: themeProvider.isDark?Colors.white:Colors.grey.shade700,
                           fontSize: 15,
                         ),
                       ),
