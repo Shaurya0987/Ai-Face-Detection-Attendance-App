@@ -1,5 +1,5 @@
 
-import 'package:facedetectionapp/Screens/Login Screen/Components/TextWidget.dart';
+import 'package:facedetectionapp/Screens/Login%20Screen/Components/TextWidget.dart';
 import 'package:facedetectionapp/Screens/Student Sign In Page/Components/DropDownMenu.dart';
 import 'package:facedetectionapp/Screens/Student Sign In Page/Components/TextFeildController.dart';
 import 'package:facedetectionapp/Screens/Student%20Sign%20In%20Page/Components/ActionSliderContainer.dart';
