@@ -136,7 +136,7 @@ class _StudentClassesScreenState extends State<StudentClassesScreen> {
                           ),
                           Row(
                             children: [
-                              Text("ViewDetails")
+                              Text("ViewDetailss")
                             ],
                           )
                         ],
