@@ -5,6 +5,8 @@ import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/Pro
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/ProfileScreen/Components/ProfileHeader.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/cupertino.dart';
+
 
 class StudentProfileScreen extends StatelessWidget {
   const StudentProfileScreen({super.key});
@@ -12,20 +14,24 @@ class StudentProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = context.watch<ThemeProvider>();
+
     return Scaffold(
-      backgroundColor: themeProvider.isDark?Colors.grey.shade900:Colors.grey.shade100,
+      backgroundColor: themeProvider.isDark
+          ? Colors.grey.shade900
+          : Colors.grey.shade100,
       appBar: const AppBarInfo(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(18.0),
+          padding: const EdgeInsets.all(18),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ProfileHeader(),
-              SizedBox(height: 20),
+              const ProfileHeader(),
+              const SizedBox(height: 20),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
+                children: const [
                   AttendanceContainer(
                     value: '85%',
                     title: 'ATTENDANCE',
@@ -43,30 +49,36 @@ class StudentProfileScreen extends StatelessWidget {
                   ),
                 ],
               ),
+
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10),
                 child: Text(
                   "Personal Info",
-                  style: TextStyle(color: themeProvider.isDark?Colors.white:Colors.black, fontSize: 21),
+                  style: TextStyle(
+                    color: themeProvider.isDark
+                        ? Colors.white
+                        : Colors.black,
+                    fontSize: 21,
+                  ),
                 ),
               ),
+
               Container(
-                height: 240,
-                width: double.infinity,
                 decoration: BoxDecoration(
-                  color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
+                  color: themeProvider.isDark
+                      ? Colors.grey.shade800
+                      : Colors.white,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       PersonalInfoWidget(
                         title: 'EMAIL ADDRESS',
                         email: 'alex.johnson@college.edu',
                         icon: Icons.email,
-                        color: Colors.deepOrange.shade600,
+                        color: Colors.deepOrange,
                         iconShade: Colors.deepOrange.shade100,
                       ),
                       Divider(color: Colors.grey.shade300, thickness: 2),
@@ -89,49 +101,58 @@ class StudentProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 15),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 15),
                 child: Text(
                   "Settings",
-                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.w900),
-                ),
-              ),
-              Container(
-                height: 250,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    children:  [
-                      SettingsTile(
-                        icon: Icons.notifications_none,
-                        title: "Notifications",
-                      ),
-                      Divider(thickness: 2,color: Colors.grey.shade300,height: 1,),
-                      SettingsTile(
-                        icon: Icons.lock_outline,
-                        title: "Privacy & Security",
-                      ),
-                      Divider(thickness: 2,color: Colors.grey.shade300,height: 1,),
-                      SettingsTile(
-                        icon: Icons.help_outline,
-                        title: "Help & Support",
-                      ),
-                      Divider(thickness: 2,color: Colors.grey.shade300,height: 1,),
-                      SettingsTile(
-                        icon: Icons.logout,
-                        title: "Log Out",
-                        isLogout: true,
-                      ),
-                    ],
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
               ),
-              SizedBox(height: 100),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: themeProvider.isDark
+                      ? Colors.grey.shade800
+                      : Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Column(
+                  children: const [
+                    SettingsTile(
+                      icon: Icons.notifications_none,
+                      title: "Notifications",
+                    ),
+                    Divider(height: 1),
+                    SettingsTile(
+                      icon: Icons.lock_outline,
+                      title: "Privacy & Security",
+                    ),
+                    Divider(height: 1),
+                    SettingsTile(
+                      icon: Icons.dark_mode_outlined,
+                      title: "Dark Theme",
+                      isThemeToggle: true,
+                    ),
+                    Divider(height: 1),
+                    SettingsTile(
+                      icon: Icons.help_outline,
+                      title: "Help & Support",
+                    ),
+                    Divider(height: 1),
+                    SettingsTile(
+                      icon: Icons.logout,
+                      title: "Log Out",
+                      isLogout: true,
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 100),
             ],
           ),
         ),
@@ -144,35 +165,62 @@ class SettingsTile extends StatelessWidget {
   final IconData icon;
   final String title;
   final bool isLogout;
+  final bool isThemeToggle;
 
   const SettingsTile({
     super.key,
     required this.icon,
     required this.title,
     this.isLogout = false,
+    this.isThemeToggle = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final themeProvider = context.watch<ThemeProvider>();
-    final color = isLogout ? Colors.red : Colors.black87;
 
     return ListTile(
-      leading: Icon(icon, color: isLogout ? Colors.red : themeProvider.isDark?Colors.grey.shade300:Colors.grey, size: 25),
+      leading: Icon(
+        icon,
+        color: isLogout
+            ? Colors.red
+            : themeProvider.isDark
+                ? Colors.grey.shade300
+                : Colors.grey,
+      ),
       title: Text(
         title,
         style: TextStyle(
-          color: themeProvider.isDark?Colors.white:color,
+          color: isLogout
+              ? Colors.red
+              : themeProvider.isDark
+                  ? Colors.white
+                  : Colors.black87,
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),
       ),
-      trailing: isLogout ? null : Icon(Icons.arrow_forward_ios, size: 13,color: themeProvider.isDark?Colors.grey.shade300:Colors.grey,),
+
+      trailing: isThemeToggle
+    ? CupertinoSwitch(
+        value: themeProvider.isDark,
+        activeColor: Colors.black, // iOS-style active color
+        onChanged: (_) => themeProvider.toggleTheme(),
+      )
+    : isLogout
+        ? null
+        : Icon(
+            Icons.arrow_forward_ios_outlined,
+            size: 13,
+            color: themeProvider.isDark
+                ? Colors.grey.shade300
+                : Colors.grey,
+          ),
+
+
       onTap: () {
         if (isLogout) {
-          // handle logout
-        } else {
-          // navigate
+          // logout logic
         }
       },
     );

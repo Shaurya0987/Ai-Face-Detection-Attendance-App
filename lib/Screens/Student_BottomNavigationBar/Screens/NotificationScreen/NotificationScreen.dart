@@ -1,4 +1,7 @@
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/NotificationScreen/Components/AppBar.dart';
+import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/NotificationScreen/Components/NotificationWidget.dart';
+import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/NotificationScreen/Components/TagsWidget.dart';
+import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/NotificationScreen/Components/UnreadNotificationWidget.dart';
 import 'package:flutter/material.dart';
 
 class StudentNotificationsScreen extends StatelessWidget {
@@ -11,7 +14,7 @@ class StudentNotificationsScreen extends StatelessWidget {
       appBar: const AppBarOfNotification(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -23,127 +26,58 @@ class StudentNotificationsScreen extends StatelessWidget {
                   TagsWidget(text: 'All', isSelected: false),
                 ],
               ),
+
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 15),
                 child: Text(
                   "NEW",
                   style: TextStyle(
+                    letterSpacing: 2,
                     color: Colors.grey,
                     fontSize: 16,
                   ),
                 ),
               ),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.blue.shade50,
-                        child: const Icon(
-                          Icons.face,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      const SizedBox(width: 15),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(
-                                  "Face Scan Required",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  "2m ago",
-                                  style: TextStyle(
-                                    color: Colors.grey.shade600,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 6),
 
-                            // ✅ SUBJECT BOLD + PADDING PRESERVED
-                            Padding(
-                              padding: EdgeInsets.only(right: 50),
-                              child: RichText(
-                                text: TextSpan(
-                                  style: TextStyle(
-                                    color: Colors.grey.shade700,
-                                    fontSize: 14,
-                                  ),
-                                  children: const [
-                                    TextSpan(
-                                      text:
-                                          "You haven't scanned your face for ",
-                                    ),
-                                    TextSpan(
-                                      text: "Biology 101",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text:
-                                          ". Please verify your attendance immediately.",
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
+              UnreadNotificationWidget(),
 
-                            const SizedBox(height: 14),
-                            Container(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 11),
-                              decoration: BoxDecoration(
-                                color: Colors.blueAccent.shade400,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Center(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Icon(
-                                      Icons.qr_code_scanner_sharp,
-                                      color: Colors.white,
-                                      size: 25,
-                                    ),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      "Scan Your Face",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+              NotificationWidget(
+                notificationText: 'Late Arrival Warning',
+                time: '15m ago',
+                icon: Icons.run_circle_outlined,
+                iconColor: Colors.deepOrange,
+                iconShade: Colors.deepOrange.shade50,
+                normalTextstart: 'You are late for ',
+                boldText: 'Physics Lab',
+                normalTextend: '. The session started at 2:00 PM.',
+              ),
+
+              NotificationWidget(
+                notificationText: 'Class Started',
+                time: '1h ago',
+                icon: Icons.school,
+                iconColor: Colors.deepPurple,
+                iconShade: Colors.deepPurple.shade50,
+                normalTextstart: 'Your ',
+                boldText: 'Calculus II',
+                normalTextend: ' class has started in Room 101.',
+              ),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Text(
+                  "EARLIER",
+                  style: TextStyle(
+                    letterSpacing: 2,
+                    color: Colors.grey,
+                    fontSize: 16,
                   ),
                 ),
               ),
+              NotificationWidget(notificationText: "Attendance Marked", time: "Yesterday", iconColor: Colors.teal, iconShade: Colors.teal.shade50, normalTextstart: "Succesfully Scanned face for Intro to ", boldText: "Biology", normalTextend: ".", icon: Icons.check_circle),
+              NotificationWidget(notificationText: "Campus Event", time: "3 days ago", iconColor: Colors.grey, iconShade: Colors.grey.shade100, normalTextstart: "Science Fair Registration is now open at the  ", boldText: "Student Center", normalTextend: ".", icon: Icons.perm_phone_msg),
+              NotificationWidget(notificationText: "App Update", time: "4 days ago", iconColor: Colors.grey.shade700, iconShade: Colors.grey.shade100, normalTextstart: "", boldText: "Version 2.1 ", normalTextend: "is available with improved face detection speed", icon: Icons.watch_later_outlined),
+              SizedBox(height: 100,)
             ],
           ),
         ),
@@ -152,35 +86,4 @@ class StudentNotificationsScreen extends StatelessWidget {
   }
 }
 
-class TagsWidget extends StatelessWidget {
-  final String text;
-  final bool isSelected;
 
-  const TagsWidget({
-    super.key,
-    required this.text,
-    required this.isSelected,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 3),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 7),
-        decoration: BoxDecoration(
-          color: isSelected ? Colors.black : Colors.white,
-          borderRadius: BorderRadius.circular(26),
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: isSelected ? Colors.white : Colors.grey.shade800,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
-}
