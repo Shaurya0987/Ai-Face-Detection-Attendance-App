@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PersonalInfoWidget extends StatelessWidget {
   final String title;
@@ -12,6 +14,7 @@ class PersonalInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
@@ -28,11 +31,13 @@ class PersonalInfoWidget extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: themeProvider.isDark?Colors.grey.shade100:Colors.grey,
                   fontSize: 13,
                 ),
               ),
-              Text(email),
+              Text(email,style: TextStyle(
+                color:themeProvider.isDark?Colors.grey.shade300:Colors.black,
+              ),),
             ],
           ),
         ],
@@ -53,6 +58,7 @@ class Personal2InfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
@@ -72,7 +78,7 @@ class Personal2InfoWidget extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: themeProvider.isDark?Colors.grey.shade100:Colors.grey,
                   fontSize: 13,
                 ),
               ),
@@ -91,12 +97,12 @@ class Personal2InfoWidget extends StatelessWidget {
           ),
           Container(
             decoration: BoxDecoration(
-              color: Colors.blue.shade50,
+              color: themeProvider.isDark?Colors.blue.shade100:Colors.blue.shade50,
               borderRadius: BorderRadius.circular(3)
             ),
             padding: EdgeInsets.symmetric(vertical: 2,horizontal: 8),
             child: Text("ReScan",style: TextStyle(
-              color: Colors.blue.shade600
+              color: themeProvider.isDark?Colors.blue.shade700:Colors.blue.shade600
             ),),
           )
         ],

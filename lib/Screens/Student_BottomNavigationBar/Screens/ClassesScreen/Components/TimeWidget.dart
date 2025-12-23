@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TimeContainer extends StatelessWidget {
   const TimeContainer({
@@ -7,9 +9,10 @@ class TimeContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Container(
       decoration: BoxDecoration(
-        color: Colors.blue.shade50,
+        color: themeProvider.isDark?Colors.blue.shade100:Colors.blue.shade50,
         borderRadius: BorderRadius.circular(6),
       ),
       child: Padding(
@@ -21,14 +24,14 @@ class TimeContainer extends StatelessWidget {
               children: [
                 Icon(
                   Icons.access_time_filled_outlined,
-                  color: Colors.blue.shade700,
+                  color: themeProvider.isDark?Colors.blue.shade600:Colors.blue.shade700,
                   size: 21,
                 ),
                 const SizedBox(width: 6),
                 Text(
                   "10:30 - 11:45",
                   style: TextStyle(
-                    color: Colors.grey.shade700,
+                    color: themeProvider.isDark?Colors.grey.shade900:Colors.grey.shade700,
                     fontSize: 16
                   ),
                 ),
@@ -47,14 +50,14 @@ class TimeContainer extends StatelessWidget {
               children: [
                 Icon(
                   Icons.location_on_rounded,
-                  color: Colors.blue.shade600,
+                  color: themeProvider.isDark?Colors.blue.shade600:Colors.blue.shade700,
                   size: 21,
                 ),
                 const SizedBox(width: 6),
                 Text(
                   "Room 304",
                   style: TextStyle(
-                    color: Colors.grey.shade700,
+                    color: themeProvider.isDark?Colors.grey.shade900:Colors.grey.shade700,
                     fontSize: 16
                   ),
                 ),

@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({
@@ -7,12 +9,13 @@ class ProfileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CircleAvatar(
-          backgroundColor: Colors.amber,
+          backgroundColor: Colors.white,
           radius: 60,
           child: ClipRRect(
             borderRadius: BorderRadiusGeometry.circular(60),
@@ -25,6 +28,7 @@ class ProfileHeader extends StatelessWidget {
         ),
         SizedBox(height: 10,),
         Text("Alex Johnson",style: TextStyle(
+          color: themeProvider.isDark?Colors.white:Colors.black,
           fontSize: 23,
           fontWeight: FontWeight.bold
         ),),
@@ -48,13 +52,13 @@ class ProfileHeader extends StatelessWidget {
             ),
             SizedBox(width: 6,),
             Text("ID: 20248592",style: TextStyle(
-              color: Colors.grey.shade600
+              color: themeProvider.isDark?Colors.grey.shade400:Colors.grey.shade600
             ),)
           ],
         ),
         SizedBox(height: 3,),
         Text("B.Sc. Computer Science",style: TextStyle(
-          color: Colors.grey.shade500
+          color: themeProvider.isDark?Colors.grey.shade400:Colors.grey.shade500
         ),)
       ],
     );

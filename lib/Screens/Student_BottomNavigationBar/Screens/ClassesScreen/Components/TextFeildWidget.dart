@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TextFeildWidget extends StatelessWidget {
   const TextFeildWidget({super.key, required this.searchController});
@@ -7,18 +9,18 @@ class TextFeildWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Container(
       height: 60,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Center(
         child: TextField(
           controller: searchController,
-          textAlign: TextAlign.center, // ⭐ centers text horizontally
-          textAlignVertical: TextAlignVertical.center, // ⭐ centers vertically
+          textAlignVertical: TextAlignVertical.center,
           decoration: const InputDecoration(
             prefixIcon: Icon(Icons.search, color: Colors.grey,size: 27,),
             hintText: "Search course code, name, instructor...",

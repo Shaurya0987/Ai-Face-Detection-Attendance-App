@@ -1,16 +1,19 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/ProfileScreen/Components/Appbar.dart';
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/ProfileScreen/Components/AttendanceContainer.dart';
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/ProfileScreen/Components/PersonalInfoContainer.dart';
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/ProfileScreen/Components/ProfileHeader.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class StudentProfileScreen extends StatelessWidget {
   const StudentProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+      backgroundColor: themeProvider.isDark?Colors.grey.shade900:Colors.grey.shade100,
       appBar: const AppBarInfo(),
       body: SingleChildScrollView(
         child: Padding(
@@ -44,14 +47,14 @@ class StudentProfileScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
                   "Personal Info",
-                  style: TextStyle(color: Colors.black, fontSize: 21),
+                  style: TextStyle(color: themeProvider.isDark?Colors.white:Colors.black, fontSize: 21),
                 ),
               ),
               Container(
                 height: 240,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
@@ -97,28 +100,28 @@ class StudentProfileScreen extends StatelessWidget {
                 height: 250,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Column(
-                    children: const [
+                    children:  [
                       SettingsTile(
                         icon: Icons.notifications_none,
                         title: "Notifications",
                       ),
-                      Divider(height: 1,color: Colors.grey,),
+                      Divider(thickness: 2,color: Colors.grey.shade300,height: 1,),
                       SettingsTile(
                         icon: Icons.lock_outline,
                         title: "Privacy & Security",
                       ),
-                      Divider(height: 1,color: Colors.grey,),
+                      Divider(thickness: 2,color: Colors.grey.shade300,height: 1,),
                       SettingsTile(
                         icon: Icons.help_outline,
                         title: "Help & Support",
                       ),
-                      Divider(height: 1,color: Colors.grey,),
+                      Divider(thickness: 2,color: Colors.grey.shade300,height: 1,),
                       SettingsTile(
                         icon: Icons.logout,
                         title: "Log Out",
@@ -151,19 +154,20 @@ class SettingsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     final color = isLogout ? Colors.red : Colors.black87;
 
     return ListTile(
-      leading: Icon(icon, color: isLogout ? Colors.red : Colors.grey, size: 25),
+      leading: Icon(icon, color: isLogout ? Colors.red : themeProvider.isDark?Colors.grey.shade300:Colors.grey, size: 25),
       title: Text(
         title,
         style: TextStyle(
-          color: color,
+          color: themeProvider.isDark?Colors.white:color,
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),
       ),
-      trailing: isLogout ? null : Icon(Icons.arrow_forward_ios, size: 13,color: Colors.grey,),
+      trailing: isLogout ? null : Icon(Icons.arrow_forward_ios, size: 13,color: themeProvider.isDark?Colors.grey.shade300:Colors.grey,),
       onTap: () {
         if (isLogout) {
           // handle logout

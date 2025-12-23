@@ -1,17 +1,20 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AppBarrrr extends StatelessWidget implements PreferredSizeWidget {
   const AppBarrrr({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: themeProvider.isDark?Colors.grey.shade800:Colors.white,
       elevation: 0,
-      title: const Text(
+      title: Text(
         "My Classes",
         style: TextStyle(
-          color: Colors.black,
+          color: themeProvider.isDark?Colors.white:Colors.black,
           fontWeight: FontWeight.w900,
           fontSize: 25,
         ),

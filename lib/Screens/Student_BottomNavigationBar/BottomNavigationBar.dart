@@ -1,4 +1,5 @@
 import 'package:facedetectionapp/Provider/ThemeProvider.dart';
+import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/CalendarScreen/CalendarScreen.dart';
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/ClassesScreen/ClassesScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/NotificationScreen/NotificationScreen.dart';
@@ -19,6 +20,7 @@ class _BottomNavigationBarrState extends State<BottomNavigationBarr> {
   // Using a list of widgets for our screens
   final List<Widget> _screens = const [
     StudentDashBoard(),
+    CalendarScreen(),
     StudentClassesScreen(),
     StudentNotificationsScreen(),
     StudentProfileScreen(),
@@ -60,9 +62,10 @@ class _BottomNavigationBarrState extends State<BottomNavigationBarr> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 _navItem(Icons.home_outlined, Icons.home, 0),
-                _navItem(Icons.maps_home_work_outlined, Icons.maps_home_work, 1),
-                _navItem(Icons.notifications_none, Icons.notifications, 2),
-                _navItem(Icons.person_outline, Icons.person, 3),
+                _navItem(Icons.calendar_month_rounded, Icons.home, 1),
+                _navItem(Icons.maps_home_work_outlined, Icons.maps_home_work, 2),
+                _navItem(Icons.notifications_none, Icons.notifications, 3),
+                _navItem(Icons.person_outline, Icons.person, 4),
               ],
             ),
           ),
