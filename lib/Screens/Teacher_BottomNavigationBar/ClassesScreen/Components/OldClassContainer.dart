@@ -6,7 +6,7 @@ class OldClassContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20,bottom: 0),
+      padding: const EdgeInsets.only(top: 20,bottom: 0,left: 25),
       child: Container(
         height: 150,
         width: double.infinity,
@@ -61,7 +61,7 @@ class OldClassContainer extends StatelessWidget {
                 "CS-101: Data Structures",
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 21,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -73,13 +73,13 @@ class OldClassContainer extends StatelessWidget {
                     Row(
                       children: [
                         Icon(Icons.location_on,
-                            color: Colors.grey.shade600, size: 21),
+                            color: Colors.grey.shade600, size: 19),
                         const SizedBox(width: 8),
                         Text(
                           "Room 210",
                           style: TextStyle(
                             color: Colors.grey.shade600,
-                            fontSize: 16,
+                            fontSize: 15,
                           ),
                         ),
                       ],
@@ -88,13 +88,13 @@ class OldClassContainer extends StatelessWidget {
                     Row(
                       children: [
                         Icon(Icons.people,
-                            color: Colors.grey.shade600, size: 21),
+                            color: Colors.grey.shade600, size: 19),
                         const SizedBox(width: 8),
                         Text(
                           "38 Students",
                           style: TextStyle(
                             color: Colors.grey.shade600,
-                            fontSize: 16,
+                            fontSize: 15,
                           ),
                         ),
                       ],

@@ -6,9 +6,9 @@ class ClassContainerRecent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.only(top: 20,left: 25),
       child: Container(
-        height: 250,
+        height: 220,
         width: double.infinity,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -16,12 +16,12 @@ class ClassContainerRecent extends StatelessWidget {
           border: Border(
             left: BorderSide( 
               color: Colors.blue.shade600,
-              width: 8,
+              width: 6,
             ),
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20.0), // UI unchanged
+          padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20), // UI unchanged
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -67,7 +67,7 @@ class ClassContainerRecent extends StatelessWidget {
                 "CS-101:",
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 21,
+                  fontSize: 19,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -76,13 +76,13 @@ class ClassContainerRecent extends StatelessWidget {
                 "Intro to Programming",
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 24,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top: 10, bottom: 20),
+                padding: const EdgeInsets.only(top: 6, bottom: 10),
                 child: Row(
                   children: [
                     Row(
@@ -117,9 +117,10 @@ class ClassContainerRecent extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: 6,),
 
               Container(
-                height: 55,
+                height: 45,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.blue.shade600,
