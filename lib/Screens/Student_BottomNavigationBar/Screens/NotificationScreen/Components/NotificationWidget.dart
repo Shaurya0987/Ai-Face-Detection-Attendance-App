@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class NotificationWidget extends StatelessWidget {
   final String notificationText;
@@ -7,15 +9,13 @@ class NotificationWidget extends StatelessWidget {
   final String normalTextend;
   final String time;
   final IconData icon;
-  final Color iconColor;
-  final Color iconShade;
+  final MaterialColor color;
 
   const NotificationWidget({
     super.key,
     required this.notificationText,
     required this.time,
-    required this.iconColor,
-    required this.iconShade,
+    required this.color,
     required this.normalTextstart,
     required this.boldText,
     required this.normalTextend,
@@ -24,12 +24,13 @@ class NotificationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
@@ -45,8 +46,8 @@ class NotificationWidget extends StatelessWidget {
           child: Row(
             children: [
               CircleAvatar(
-                backgroundColor: iconShade,
-                child: Icon(icon, color: iconColor),
+                backgroundColor: themeProvider.isDark?color.shade100:color.shade50,
+                child: Icon(icon, color: color),
               ),
               SizedBox(width: 20,),
               Expanded(
@@ -66,7 +67,7 @@ class NotificationWidget extends StatelessWidget {
                         Text(
                           time,
                           style: TextStyle(
-                            color: Colors.grey.shade600,
+                            color: themeProvider.isDark?Colors.grey.shade200:Colors.grey.shade600,
                             fontSize: 12,
                           ),
                         ),
@@ -77,7 +78,7 @@ class NotificationWidget extends StatelessWidget {
                       child: RichText(
                         text: TextSpan(
                           style: TextStyle(
-                            color: Colors.grey.shade700,
+                            color: themeProvider.isDark?Colors.grey.shade200:Colors.grey.shade700,
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                             height: 1.4,

@@ -1,16 +1,19 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/NotificationScreen/Components/AppBar.dart';
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/NotificationScreen/Components/NotificationWidget.dart';
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/NotificationScreen/Components/TagsWidget.dart';
 import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/NotificationScreen/Components/UnreadNotificationWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class StudentNotificationsScreen extends StatelessWidget {
   const StudentNotificationsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+      backgroundColor: themeProvider.isDark?Colors.grey.shade900:Colors.grey.shade100,
       appBar: const AppBarOfNotification(),
       body: SingleChildScrollView(
         child: Padding(
@@ -27,13 +30,13 @@ class StudentNotificationsScreen extends StatelessWidget {
                 ],
               ),
 
-              const Padding(
+               Padding(
                 padding: EdgeInsets.symmetric(vertical: 15),
                 child: Text(
                   "NEW",
                   style: TextStyle(
                     letterSpacing: 2,
-                    color: Colors.grey,
+                    color: themeProvider.isDark?Colors.white:Colors.grey,
                     fontSize: 16,
                   ),
                 ),
@@ -45,8 +48,7 @@ class StudentNotificationsScreen extends StatelessWidget {
                 notificationText: 'Late Arrival Warning',
                 time: '15m ago',
                 icon: Icons.run_circle_outlined,
-                iconColor: Colors.deepOrange,
-                iconShade: Colors.deepOrange.shade50,
+                color: Colors.deepOrange,
                 normalTextstart: 'You are late for ',
                 boldText: 'Physics Lab',
                 normalTextend: '. The session started at 2:00 PM.',
@@ -56,8 +58,7 @@ class StudentNotificationsScreen extends StatelessWidget {
                 notificationText: 'Class Started',
                 time: '1h ago',
                 icon: Icons.school,
-                iconColor: Colors.deepPurple,
-                iconShade: Colors.deepPurple.shade50,
+                color: Colors.deepPurple,
                 normalTextstart: 'Your ',
                 boldText: 'Calculus II',
                 normalTextend: ' class has started in Room 101.',
@@ -74,9 +75,9 @@ class StudentNotificationsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              NotificationWidget(notificationText: "Attendance Marked", time: "Yesterday", iconColor: Colors.teal, iconShade: Colors.teal.shade50, normalTextstart: "Succesfully Scanned face for Intro to ", boldText: "Biology", normalTextend: ".", icon: Icons.check_circle),
-              NotificationWidget(notificationText: "Campus Event", time: "3 days ago", iconColor: Colors.grey, iconShade: Colors.grey.shade100, normalTextstart: "Science Fair Registration is now open at the  ", boldText: "Student Center", normalTextend: ".", icon: Icons.perm_phone_msg),
-              NotificationWidget(notificationText: "App Update", time: "4 days ago", iconColor: Colors.grey.shade700, iconShade: Colors.grey.shade100, normalTextstart: "", boldText: "Version 2.1 ", normalTextend: "is available with improved face detection speed", icon: Icons.watch_later_outlined),
+              NotificationWidget(notificationText: "Attendance Marked", time: "Yesterday", color: Colors.teal, normalTextstart: "Succesfully Scanned face for Intro to ", boldText: "Biology", normalTextend: ".", icon: Icons.check_circle),
+              NotificationWidget(notificationText: "Campus Event", time: "3 days ago", color: Colors.grey, normalTextstart: "Science Fair Registration is now open at the  ", boldText: "Student Center", normalTextend: ".", icon: Icons.perm_phone_msg),
+              NotificationWidget(notificationText: "App Update", time: "4 days ago", color: Colors.grey, normalTextstart: "", boldText: "Version 2.1 ", normalTextend: "is available with improved face detection speed", icon: Icons.watch_later_outlined),
               SizedBox(height: 100,)
             ],
           ),

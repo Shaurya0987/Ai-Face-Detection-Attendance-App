@@ -1,23 +1,26 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class UnreadNotificationWidget extends StatelessWidget {
   const UnreadNotificationWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return Padding(
       padding: EdgeInsets.only(bottom: 10),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: themeProvider.isDark?Colors.grey.shade800:Colors.white,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.08),
               blurRadius: 12,
               spreadRadius: 2,
-              offset: const Offset(0, 6), // 👈 vertical lift
+              offset: const Offset(0, 6), 
             ),
           ],
         ),
@@ -27,7 +30,7 @@ class UnreadNotificationWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CircleAvatar(
-                backgroundColor: Colors.blue.shade50,
+                backgroundColor: themeProvider.isDark?Colors.blue.shade100:Colors.blue.shade50,
                 child: const Icon(Icons.face, color: Colors.blue),
               ),
               const SizedBox(width: 20),
@@ -38,17 +41,18 @@ class UnreadNotificationWidget extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           "Face Scan Required",
                           style: TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
+                            color: themeProvider.isDark?Colors.white:Colors.black
                           ),
                         ),
                         Text(
                           "2m ago",
                           style: TextStyle(
-                            color: Colors.grey.shade600,
+                            color: themeProvider.isDark?Colors.grey.shade200:Colors.grey.shade600,
                             fontSize: 12,
                           ),
                         ),
@@ -62,12 +66,13 @@ class UnreadNotificationWidget extends StatelessWidget {
                       child: RichText(
                         text: TextSpan(
                           style: TextStyle(
-                            color: Colors.grey.shade700,
+                            color: themeProvider.isDark?Colors.grey.shade200:Colors.grey.shade700,
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                           ),
-                          children: const [
-                            TextSpan(text: "You haven't scanned your face for "),
+                          children:  [
+                            TextSpan(text: "You haven't scanned your face for ",style: TextStyle(
+                            )),
                             TextSpan(
                               text: "Biology 101",
                               style: TextStyle(fontWeight: FontWeight.w900),

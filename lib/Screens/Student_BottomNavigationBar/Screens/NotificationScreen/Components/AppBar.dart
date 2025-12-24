@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AppBarOfNotification extends StatelessWidget
     implements PreferredSizeWidget {
@@ -6,8 +8,9 @@ class AppBarOfNotification extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return AppBar(
-      backgroundColor: Colors.grey.shade50,
+      backgroundColor: themeProvider.isDark?Colors.grey.shade800:Colors.grey.shade50,
       elevation: 4,
 
       leadingWidth: 220,
@@ -34,12 +37,12 @@ class AppBarOfNotification extends StatelessWidget
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children:  [
                   Text(
                     "STUDENT",
                     style: TextStyle(
                       letterSpacing: 2,
-                      color: Colors.grey,
+                      color: themeProvider.isDark?Colors.grey.shade300:Colors.grey,
                       fontSize: 12,
                     ),
                   ),
@@ -47,7 +50,7 @@ class AppBarOfNotification extends StatelessWidget
                   Text(
                     "Notifications",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: themeProvider.isDark?Colors.white:Colors.black,
                       fontSize: 19,
                       fontWeight: FontWeight.bold,
                     ),
@@ -67,20 +70,20 @@ class AppBarOfNotification extends StatelessWidget
             children: [
               CircleAvatar(
                 radius: 23,
-                backgroundColor: Colors.white,
+                backgroundColor: themeProvider.isDark?Colors.grey.shade800:Colors.white,
                 child: Icon(
                   Icons.search,
-                  color: Colors.grey.shade600,
+                  color: themeProvider.isDark?Colors.grey.shade300:Colors.blue.shade600,
                   size: 24,
                 ),
               ),
               const SizedBox(width: 7),
               CircleAvatar(
                 radius: 23,
-                backgroundColor: Colors.white,
+                backgroundColor: themeProvider.isDark?Colors.grey.shade800:Colors.white,
                 child: Icon(
                   Icons.checklist_sharp,
-                  color: Colors.blue.shade600,
+                  color: themeProvider.isDark?Colors.blue.shade400:Colors.blue.shade600,
                   size: 24,
                 ),
               ),

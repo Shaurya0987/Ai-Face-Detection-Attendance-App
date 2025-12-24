@@ -1,4 +1,6 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AppBarOfCalendarScreen extends StatelessWidget
     implements PreferredSizeWidget {
@@ -6,8 +8,9 @@ class AppBarOfCalendarScreen extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
     return AppBar(
-      backgroundColor: Colors.grey.shade100,
+      backgroundColor: themeProvider.isDark?Colors.grey.shade800:Colors.grey.shade50,
       elevation: 5,
 
       leading: Padding(
@@ -34,14 +37,14 @@ class AppBarOfCalendarScreen extends StatelessWidget
             "STUDENT",
             style: TextStyle(
               letterSpacing: 2,
-              color: Colors.grey.shade600,
+              color: themeProvider.isDark?Colors.grey.shade300:Colors.grey.shade600,
               fontSize: 13,
             ),
           ),
-          const Text(
+          Text(
             "Academic Calendar",
             style: TextStyle(
-              color: Colors.black,
+              color: themeProvider.isDark?Colors.white:Colors.black,
               fontSize: 20,
               fontWeight: FontWeight.w900,
             ),
@@ -57,20 +60,20 @@ class AppBarOfCalendarScreen extends StatelessWidget
             children: [
               CircleAvatar(
                 radius: 23,
-                backgroundColor: Colors.white,
+                backgroundColor: themeProvider.isDark?Colors.grey.shade800:Colors.white,
                 child: Icon(
                   Icons.search,
-                  color: Colors.grey.shade700,
+                  color: themeProvider.isDark?Colors.grey.shade400:Colors.grey.shade700,
                   size: 24,
                 ),
               ),
               const SizedBox(width: 7),
               CircleAvatar(
                 radius: 23,
-                backgroundColor: Colors.white,
+                backgroundColor: themeProvider.isDark?Colors.grey.shade800:Colors.white,
                 child: Icon(
                   Icons.notifications_active,
-                  color: Colors.grey.shade700,
+                  color: themeProvider.isDark?Colors.grey.shade400:Colors.grey.shade700,
                   size: 24,
                 ),
               ),
