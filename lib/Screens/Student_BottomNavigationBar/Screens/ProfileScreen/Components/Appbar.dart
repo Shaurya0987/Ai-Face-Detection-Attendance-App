@@ -10,11 +10,13 @@ class AppBarInfo extends StatelessWidget implements PreferredSizeWidget {
     final themeProvider = context.watch<ThemeProvider>();
     return AppBar(
       backgroundColor: themeProvider.isDark?Colors.grey.shade800:Colors.white,
-      leading: const Padding(
-        padding: EdgeInsets.only(left: 10),
-        child: Icon(Icons.person_pin_circle_rounded, size: 35),
+      leading: Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: Icon(Icons.person_pin_circle_rounded, size: 35,color: themeProvider.isDark?Colors.white:Colors.grey.shade800),
       ),
-      title: const Text("My Profile"),
+      title: Text("My Profile",style: TextStyle(
+        color: themeProvider.isDark?Colors.white:Colors.black
+      ),),
       actions: const [
         Padding(
           padding: EdgeInsets.only(right: 10),

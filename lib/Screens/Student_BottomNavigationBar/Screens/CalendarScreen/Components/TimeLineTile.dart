@@ -32,7 +32,7 @@ class TimeLineTileWidget extends StatelessWidget {
     final String statusText = isActive
         ? "LIVE NOW"
         : isPast
-            ? "ATTENDED"
+            ? "ENDED"
             : "UPCOMING";
 
     final Color statusColor = isActive
