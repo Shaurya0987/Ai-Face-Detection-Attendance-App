@@ -62,10 +62,10 @@ class TeacherAppBar extends StatelessWidget
           padding: const EdgeInsets.only(right: 12),
           child: CircleAvatar(
             radius: 18,
-            backgroundColor: themeProvider.isDark?Colors.white:Colors.grey.shade200,
-            child: const Icon(
+            backgroundColor: themeProvider.isDark?Colors.grey.shade600:Colors.white,
+            child: Icon(
               Icons.notifications,
-              color: Colors.black,
+              color: themeProvider.isDark?Colors.grey.shade300:Colors.black,
             ),
           ),
         ),

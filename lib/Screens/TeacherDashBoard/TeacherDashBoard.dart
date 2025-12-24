@@ -143,7 +143,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
               ),
               RecentActivityContainer(),
 
-              SizedBox(height: 50),
+              SizedBox(height: 150),
             ],
           ),
         ),

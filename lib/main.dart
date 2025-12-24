@@ -1,9 +1,6 @@
 import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:facedetectionapp/Provider/UserProvider.dart';
-import 'package:facedetectionapp/Screens/StudentDashBoard/StudentDashBoard.dart';
-import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/BottomNavigationBar.dart';
-import 'package:facedetectionapp/Screens/Student_BottomNavigationBar/Screens/ClassesScreen/ClassesScreen.dart';
-import 'package:facedetectionapp/Screens/TeacherDashBoard/TeacherDashBoard.dart';
+import 'package:facedetectionapp/Screens/Teacher_BottomNavigationBar/BottomNavigationBar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -40,7 +37,7 @@ class MyApp extends StatelessWidget {
 
       themeMode: themeProvider.isDark ? ThemeMode.dark : ThemeMode.light,
 
-      home: TeacherDashboard(),
+      home: TeacherBottomNavigationBarr(),
     );
   }
 }
