@@ -1,8 +1,7 @@
-import 'package:facedetectionapp/Provider/ThemeProvider.dart';
+
 import 'package:facedetectionapp/Screens/Teacher_BottomNavigationBar/ClassesScreen/Components/OldClassContainer.dart';
 import 'package:facedetectionapp/Screens/Teacher_BottomNavigationBar/ClassesScreen/Components/RecentClassContainer.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 class TeacherTimeLine extends StatelessWidget {
@@ -23,7 +22,6 @@ class TeacherTimeLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = context.watch<ThemeProvider>().isDark;
 
     return TimelineTile(
       isFirst: isFirst,
