@@ -1,6 +1,6 @@
 import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:facedetectionapp/Provider/UserProvider.dart';
-import 'package:facedetectionapp/Screens/Teacher_BottomNavigationBar/BottomNavigationBar.dart';
+import 'package:facedetectionapp/Screens/Splash%20Screen/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
 
       themeMode: themeProvider.isDark ? ThemeMode.dark : ThemeMode.light,
 
-      home: TeacherBottomNavigationBarr(),
+      home: SplashScreen(),
     );
   }
 }

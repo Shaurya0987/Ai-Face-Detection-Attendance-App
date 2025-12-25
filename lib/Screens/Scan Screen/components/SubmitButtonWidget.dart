@@ -1,3 +1,4 @@
+import 'package:facedetectionapp/Screens/Teacher_BottomNavigationBar/BottomNavigationBar.dart';
 import 'package:flutter/material.dart';
 
 class SubmitButtomWidget extends StatelessWidget {
@@ -19,7 +20,7 @@ class SubmitButtomWidget extends StatelessWidget {
           elevation: 5,
         ),
         onPressed: () {
-          
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TeacherBottomNavigationBarr()));
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

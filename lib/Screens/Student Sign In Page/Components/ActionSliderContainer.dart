@@ -1,6 +1,6 @@
 import 'package:action_slider/action_slider.dart';
 import 'package:facedetectionapp/Provider/UserProvider.dart';
-import 'package:facedetectionapp/Screens/Scan%20Screen/ScanScreen.dart';
+import 'package:facedetectionapp/Screens/Scan%20Screen/StudentScanScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -90,7 +90,7 @@ class ActionSliderWidget extends StatelessWidget {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (_) => ScanScreen(),
+            builder: (_) => StudentScanScreen(),
           ),
         );
       },

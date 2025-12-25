@@ -1,3 +1,4 @@
+
 import 'package:facedetectionapp/Screens/Scan Screen/components/AppBarWidget.dart';
 import 'package:facedetectionapp/Screens/Scan Screen/components/TextsWidget.dart';
 import 'package:facedetectionapp/Screens/Scan%20Screen/components/ContainerIcons.dart';
@@ -5,17 +6,18 @@ import 'package:facedetectionapp/Screens/Scan%20Screen/components/InstructionsSe
 import 'package:facedetectionapp/Screens/Scan%20Screen/components/SubmitButtonWidget.dart';
 import 'package:flutter/material.dart';
 
-class ScanScreen extends StatefulWidget {
-  const ScanScreen({super.key});
+class TeacherScanScreen extends StatefulWidget {
+  const TeacherScanScreen({super.key});
 
   @override
-  State<ScanScreen> createState() => _ScanScreenState();
+  State<TeacherScanScreen> createState() => _TeacherScanScreen();
 }
 
-class _ScanScreenState extends State<ScanScreen> {
+class _TeacherScanScreen extends State<TeacherScanScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBarWidget(context),
       body: Padding(
         padding: const EdgeInsets.all(25.0),
