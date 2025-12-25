@@ -1,17 +1,21 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ClassContainerRecent extends StatelessWidget {
   const ClassContainerRecent({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
+    final isDark = themeProvider.isDark;
     return Padding(
       padding: const EdgeInsets.only(top: 20,left: 25),
       child: Container(
         height: 220,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark?Colors.grey.shade800:Colors.white,
           borderRadius: BorderRadius.circular(16),
           border: Border(
             left: BorderSide( 
@@ -50,10 +54,10 @@ class ClassContainerRecent extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Text(
+                  Text(
                     "8:30 - 09:45 AM",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: isDark?Colors.grey.shade200:Colors.black,
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
@@ -63,19 +67,19 @@ class ClassContainerRecent extends StatelessWidget {
 
               const SizedBox(height: 10),
 
-              const Text(
+              Text(
                 "CS-101:",
                 style: TextStyle(
-                  color: Colors.black,
+                  color: isDark?Colors.white:Colors.black,
                   fontSize: 19,
                   fontWeight: FontWeight.bold,
                 ),
               ),
 
-              const Text(
+              Text(
                 "Intro to Programming",
                 style: TextStyle(
-                  color: Colors.black,
+                  color: isDark?Colors.white:Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
@@ -88,12 +92,12 @@ class ClassContainerRecent extends StatelessWidget {
                     Row(
                       children: [
                         Icon(Icons.location_on,
-                            color: Colors.grey.shade600, size: 21),
+                            color: isDark?Colors.grey.shade300:Colors.grey.shade600, size: 21),
                         const SizedBox(width: 8),
                         Text(
                           "Room 304",
                           style: TextStyle(
-                            color: Colors.grey.shade600,
+                            color: isDark?Colors.grey.shade300:Colors.grey.shade600,
                             fontSize: 16,
                           ),
                         ),
@@ -103,12 +107,12 @@ class ClassContainerRecent extends StatelessWidget {
                     Row(
                       children: [
                         Icon(Icons.people,
-                            color: Colors.grey.shade600, size: 21),
+                            color: isDark?Colors.grey.shade300:Colors.grey.shade600,size: 21),
                         const SizedBox(width: 8),
                         Text(
                           "54 Students",
                           style: TextStyle(
-                            color: Colors.grey.shade600,
+                            color: isDark?Colors.grey.shade300:Colors.grey.shade600,
                             fontSize: 16,
                           ),
                         ),

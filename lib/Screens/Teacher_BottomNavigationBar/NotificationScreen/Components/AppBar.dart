@@ -2,9 +2,9 @@ import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class AppBarofClassScreen extends StatelessWidget
+class AppBarofNotificationScreen extends StatelessWidget
     implements PreferredSizeWidget {
-  const AppBarofClassScreen({super.key});
+  const AppBarofNotificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class AppBarofClassScreen extends StatelessWidget
           child: CircleAvatar(
             radius: 22,
             backgroundColor: isDark?Colors.grey.shade600:Colors.white,
-            child: Icon(Icons.calendar_month,color: isDark?Colors.grey.shade300:Colors.grey.shade800,),
+            child: Icon(Icons.checklist_sharp,color: isDark?Colors.grey.shade300:Colors.grey.shade800,),
           ),
         )
       ],

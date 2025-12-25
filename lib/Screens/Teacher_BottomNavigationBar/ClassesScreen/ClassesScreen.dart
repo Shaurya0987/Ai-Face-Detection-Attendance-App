@@ -1,17 +1,19 @@
+import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:facedetectionapp/Screens/TeacherDashBoard/Components/Header.dart';
 import 'package:facedetectionapp/Screens/Teacher_BottomNavigationBar/ClassesScreen/Components/AppBar.dart';
-import 'package:facedetectionapp/Screens/Teacher_BottomNavigationBar/ClassesScreen/Components/OldClassContainer.dart';
-import 'package:facedetectionapp/Screens/Teacher_BottomNavigationBar/ClassesScreen/Components/RecentClassContainer.dart';
+import 'package:facedetectionapp/Screens/Teacher_BottomNavigationBar/ClassesScreen/Components/TeacherTimeLine.dart';
 import 'package:flutter/material.dart';
-import 'package:timeline_tile/timeline_tile.dart';
+import 'package:provider/provider.dart';
 
 class TeacherClassesScreen extends StatelessWidget {
   const TeacherClassesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = context.watch<ThemeProvider>();
+    final isDark = themeProvider.isDark;
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: isDark ? Colors.grey.shade900 : Colors.grey.shade100,
       appBar: const AppBarofClassScreen(),
       body: SingleChildScrollView(
         child: Padding(
@@ -19,10 +21,10 @@ class TeacherClassesScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 "SCHEDULE",
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: isDark ? Colors.grey.shade300 : Colors.grey.shade600,
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
                 ),
@@ -59,52 +61,3 @@ class TeacherClassesScreen extends StatelessWidget {
   }
 }
 
-
-class TeacherTimeLine extends StatelessWidget {
-  final bool isFirst;
-  final bool isLast;
-  final bool isPast;
-  final bool isActive;
-  final bool showRecent;
-
-  const TeacherTimeLine({
-    super.key,
-    this.isFirst = false,
-    this.isLast = false,
-    required this.isPast,
-    this.isActive = false,
-    this.showRecent = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: showRecent ? 260 : 200,
-      child: TimelineTile(
-        isFirst: isFirst,
-        isLast: isLast,
-
-        beforeLineStyle: LineStyle(
-          color: Colors.grey.shade500,
-          thickness: 2,
-        ),
-
-        indicatorStyle: IndicatorStyle(
-          width: 30,
-          color: isActive ? Colors.blue : Colors.white,
-          iconStyle: IconStyle(
-            iconData: isActive
-                ? Icons.access_time_filled_sharp
-                : Icons.circle_outlined,
-            color: isActive ? Colors.white : Colors.grey.shade500,
-          ),
-        ),
-
-        /// 🔥 CONDITIONAL CONTENT
-        endChild: showRecent
-            ? const ClassContainerRecent()
-            : const OldClassContainer(),
-      ),
-    );
-  }
-}
