@@ -61,7 +61,7 @@ class ActionSliderWidget extends StatelessWidget {
           return;
         }
     
-        if (idController.text.length < 5 || idController.text.length>5) {
+        if (idController.text.length != 5) {
           controller.reset();
     
           ScaffoldMessenger.of(context).showSnackBar(

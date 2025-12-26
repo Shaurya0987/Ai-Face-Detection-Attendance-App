@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LogoWidget extends StatelessWidget {
-  const LogoWidget({
-    super.key,
-  });
+  const LogoWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +19,7 @@ class LogoWidget extends StatelessWidget {
           ),
         ],
       ),
-      child: const Icon(
-        Icons.school_rounded,
-        color: Colors.blue,
-        size: 85,
-      ),
+      child: const Icon(Icons.school_rounded, color: Colors.blue, size: 85),
     );
   }
 }
@@ -50,9 +44,7 @@ class UserWidget extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(35),
       child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(35),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(35)),
         elevation: 5,
         child: Container(
           height: 80,
@@ -67,11 +59,7 @@ class UserWidget extends StatelessWidget {
                 CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.blue.shade100,
-                  child: Icon(
-                    icon,
-                    color: Colors.blue.shade600,
-                    size: 30,
-                  ),
+                  child: Icon(icon, color: Colors.blue.shade600, size: 30),
                 ),
                 const SizedBox(width: 10),
                 Expanded(

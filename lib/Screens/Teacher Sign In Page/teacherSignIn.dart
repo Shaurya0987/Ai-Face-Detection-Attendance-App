@@ -138,8 +138,8 @@ class _TeacherSignInState extends State<TeacherSignIn> {
                               }
 
                               /// ✅ SAVE DATA
-                              final userSession =
-                                  context.read<UserSession>();
+                              final userSession =context.read<UserSession>();
+                              
                               userSession.setName(
                                 nameController.text.trim(),
                               );

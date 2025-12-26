@@ -6,6 +6,7 @@ class UserSession extends ChangeNotifier {
   String? name;
   String? sem;
   String? email;
+  
   void setrole(String value) {
     role = value;
     notifyListeners();
