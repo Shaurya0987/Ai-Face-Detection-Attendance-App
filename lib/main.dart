@@ -1,9 +1,6 @@
 import 'package:facedetectionapp/Provider/ThemeProvider.dart';
 import 'package:facedetectionapp/Provider/UserProvider.dart';
-import 'package:facedetectionapp/Screens/Login%20Screen/LoginScreen.dart';
-import 'package:facedetectionapp/Screens/Splash%20Screen/SplashScreen.dart';
 import 'package:facedetectionapp/Screens/Student%20Sign%20In%20Page/StudentSignIn.dart';
-import 'package:facedetectionapp/Screens/Teacher%20Sign%20In%20Page/teacherSignIn.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
